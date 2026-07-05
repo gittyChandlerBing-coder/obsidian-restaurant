@@ -1,4 +1,4 @@
-/* Color Palette & Variables */ 
+/* Color Palette & Variables */
 :root {
     --obsidian: #0b0c10;
     --parchment: #f4ecd8;
@@ -146,7 +146,7 @@ h1, h2, h3 {
 /* Parallax Hero */
 .hero {
     height: 100vh;
-    /* Hero Image (1.jpg) applied here */
+    /* Updated to .png to match your HTML structure */
     background-image: url('images/1.png');
     background-attachment: fixed;
     background-position: center;
@@ -250,14 +250,14 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
-.image-column img-wide reveal {
+.img-wide {
     grid-column: 1 / -1;
     margin-top: -4rem;
     justify-self: start;
     width: 70%;
 }
 
-.image-column img-wide reveal img {
+.img-wide img {
     width: 100%;
     height: auto;
 }
@@ -275,7 +275,7 @@ h1, h2, h3 {
 }
 
 /* ------------------------------------- */
-/* NEW: Guest Chronicle / Review Carousel */
+/* Guest Chronicle / Review Carousel */
 /* ------------------------------------- */
 .reviews-section {
     padding: 6rem 0 10rem 0;
@@ -325,7 +325,6 @@ h1, h2, h3 {
     display: flex;
     gap: 2rem;
     width: max-content;
-    /* Adjust '30s' to make the swipe faster or slower */
     animation: swipe-scroll 30s linear infinite; 
 }
 
@@ -375,7 +374,6 @@ h1, h2, h3 {
 /* The infinite swipe animation logic */
 @keyframes swipe-scroll {
     0% { transform: translateX(0); }
-    /* Shifts the track left by exactly half its width (minus gap space) */
     100% { transform: translateX(calc(-50% - 1rem)); } 
 }
 
