@@ -1,137 +1,476 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'OBSIDIAN | Fine Dining</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Color Palette & Variables */
+:root {
+    --obsidian: #0b0c10;
+    --parchment: #f4ecd8;
+    --gold: #d4af37;
+    --cream: #fbfbf9;
+    --blood-orange: #cc3333;
+    
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
 
-    <header class="main-header">
-        <div class="logo">L'OBSIDIAN</div>
-        <button class="menu-toggle" id="open-menu">&#9776;</button>
-    </header>
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <nav class="sliding-nav" id="sliding-nav">
-        <button class="close-menu" id="close-menu">&times;</button>
-        <div class="nav-content">
-            <ul class="nav-links">
-                <li><a href="#menu" data-image="nav-img-1">The Menu</a></li>
-                <li><a href="#wine" data-image="nav-img-2">Wine Pairings</a></li>
-                <li><a href="#sourcing" data-image="nav-img-3">Our Sourcing</a></li>
-                <li><a href="#private" data-image="nav-img-4">Private Dining</a></li>
-            </ul>
-            <div class="nav-imagery">
-                <img src="images/2.png" alt="The Menu" class="nav-img active" id="nav-img-1">
-                <img src="images/3.png" alt="Wine Pairings" class="nav-img" id="nav-img-2">
-                <img src="images/4.png" alt="Our Sourcing" class="nav-img" id="nav-img-3">
-                <img src="images/5.png" alt="Private Dining" class="nav-img" id="nav-img-4">
-            </div>
-        </div>
-    </nav>
+body {
+    background-color: var(--obsidian);
+    color: var(--parchment);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-    <section class="hero">
-        <div class="hero-content reveal">
-            <h1>A Culinary Symphony</h1>
-            <p>Experience the intersection of earth and fire.</p>
-            <button class="btn-primary" id="open-modal">Reserve a Table</button>
-        </div>
-    </section>
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    color: var(--gold);
+}
 
-    <section class="editorial-section">
-        <div class="container asymmetric-grid">
-            <div class="text-column reveal">
-                <span class="label">Our Philosophy</span>
-                <h2>Rooted in tradition, <br>forged in modern technique.</h2>
-                <p>We source the finest ingredients from local purveyors and treat them with an uncompromising respect. Every dish is a dialogue between raw nature and meticulous refinement.</p>
-            </div>
-            <div class="image-column img-tall reveal">
-                <img src="images/6.png" alt="Chef plating a dish with tweezers">
-            </div>
-            <div class="image-column img-wide reveal">
-                <img src="images/7.png" alt="Chef grilling steak over an open fire">
-            </div>
-        </div>
-    </section>
-    <section class="reviews-section">
-        <h2 class="section-title">Unforgettable Moments: A Guest Chronicle</h2>
-        <div class="carousel-container">
-            <div class="carousel-track">
-                
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"From the first bite, I knew... a journey through textures and tastes."</p>
-                    <span class="username">— Foodie_Fanatic</span>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"L'OBSIDIAN is not just a restaurant; it is a sanctuary for flavor... The detail is stunning."</p>
-                    <span class="username">— Culinary_Aesthete</span>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"Innovation at its finest. The wine pairings were impeccable."</p>
-                    <span class="username">— Flavor_Seeker</span>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"An absolute triumph of modern technique over traditional ingredients."</p>
-                    <span class="username">— The_Daily_Dine</span>
-                </div>
+/* Header & Typography */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+    mix-blend-mode: difference;
+}
 
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"From the first bite, I knew... a journey through textures and tastes."</p>
-                    <span class="username">— Foodie_Fanatic</span>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"L'OBSIDIAN is not just a restaurant; it is a sanctuary for flavor... The detail is stunning."</p>
-                    <span class="username">— Culinary_Aesthete</span>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"Innovation at its finest. The wine pairings were impeccable."</p>
-                    <span class="username">— Flavor_Seeker</span>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="comment">"An absolute triumph of modern technique over traditional ingredients."</p>
-                    <span class="username">— The_Daily_Dine</span>
-                </div>
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--cream);
+    text-transform: uppercase;
+}
 
-            </div>
-        </div>
-    </section>
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--cream);
+    font-size: 2rem;
+    cursor: pointer;
+}
 
-    <div class="modal-overlay" id="reservation-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal">&times;</button>
-            <h2>Make a Reservation</h2>
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="reservation-form">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Date & Time</label>
-                    <input type="datetime-local" name="datetime" required>
-                </div>
-                <div class="form-group">
-                    <label>Guest Count</label>
-                    <input type="number" name="guests" min="1" max="10" required>
-                </div>
-                <button type="submit" class="btn-primary">Confirm Request</button>
-            </form>
-        </div>
-    </div>
+/* Sliding Navigation Drawer */
+.sliding-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--obsidian);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.sliding-nav.open {
+    transform: translateX(0);
+}
+
+.close-menu {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
+    background: none;
+    border: none;
+    color: var(--parchment);
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.nav-content {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 2rem 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--parchment);
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--blood-orange);
+}
+
+.nav-imagery {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    overflow: hidden;
+}
+
+.nav-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.nav-img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Parallax Hero */
+.hero {
+    height: 100vh;
+    /* Updated to .png to match your HTML structure */
+    background-image: url('images/1.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 12, 16, 0.4); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    color: var(--cream);
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--parchment);
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--blood-orange);
+    color: var(--cream);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #a32929;
+}
+
+/* Asymmetric Editorial Section */
+.editorial-section {
+    padding: 8rem 4rem;
+    background-color: var(--obsidian);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.asymmetric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4rem;
+    align-items: center;
+}
+
+.text-column {
+    max-width: 450px;
+    justify-self: end;
+}
+
+.text-column .label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--blood-orange);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.text-column h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.img-tall img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+}
+
+.img-wide {
+    grid-column: 1 / -1;
+    margin-top: -4rem;
+    justify-self: start;
+    width: 70%;
+}
+
+.img-wide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Scroll Trigger Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------------------------- */
+/* Guest Chronicle / Review Carousel */
+/* ------------------------------------- */
+.reviews-section {
+    padding: 6rem 0 10rem 0;
+    background-color: var(--obsidian);
+    text-align: center;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0;
+}
+
+/* Fading edges to blend with the dark background */
+.carousel-container::before,
+.carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--obsidian) 0%, transparent 100%);
+}
+
+.carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--obsidian) 0%, transparent 100%);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: swipe-scroll 30s linear infinite; 
+}
+
+/* Pause the scrolling when the user hovers over a review */
+.carousel-track:hover {
+    animation-play-state: paused; 
+}
+
+.review-card {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 2.5rem;
+    width: 400px;
+    border-radius: 2px;
+    text-align: left;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.review-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+.review-card .stars {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.review-card .comment {
+    font-style: italic;
+    color: var(--parchment);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.review-card .username {
+    font-family: var(--font-heading);
+    color: var(--blood-orange);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* The infinite swipe animation logic */
+@keyframes swipe-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); } 
+}
+
+
+/* ------------------------------------- */
+/* Reservation Modal */
+/* ------------------------------------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(11, 12, 16, 0.95);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--parchment);
+    color: var(--obsidian);
+    padding: 4rem;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content h2 {
+    color: var(--obsidian);
+    margin-bottom: 2rem;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--obsidian);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    font-family: var(--font-body);
+}
+
+/* ------------------------------------- */
+/* Responsive adjustments */
+/* ------------------------------------- */
+@media (max-width: 900px) {
+    .nav-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-imagery {
+        display: none; 
+    }
+    .asymmetric-grid {
+        grid-template-columns: 1fr;
+    }
+    .text-column, .img-wide {
+        justify-self: center;
+        width: 100%;
+        margin-top: 0;
+    }
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    .review-card {
+        width: 300px;
+        padding: 2rem;
+    }
+}
