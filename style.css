@@ -362,3 +362,113 @@ h1, h2, h3 {
         font-size: 3.5rem;
     }
 }
+/* Guest Chronicle / Review Carousel */
+.reviews-section {
+    padding: 6rem 0 10rem 0;
+    background-color: var(--obsidian);
+    text-align: center;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0;
+}
+
+/* Fading edges to blend with the dark background */
+.carousel-container::before,
+.carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--obsidian) 0%, transparent 100%);
+}
+
+.carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--obsidian) 0%, transparent 100%);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    /* Adjust '30s' to make the swipe faster or slower */
+    animation: swipe-scroll 30s linear infinite; 
+}
+
+/* Pause the scrolling when the user hovers over a review */
+.carousel-track:hover {
+    animation-play-state: paused; 
+}
+
+.review-card {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 2.5rem;
+    width: 400px;
+    border-radius: 2px;
+    text-align: left;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.review-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+.review-card .stars {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.review-card .comment {
+    font-style: italic;
+    color: var(--parchment);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.review-card .username {
+    font-family: var(--font-heading);
+    color: var(--blood-orange);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* The infinite swipe animation logic */
+@keyframes swipe-scroll {
+    0% { transform: translateX(0); }
+    /* Shifts the track left by exactly half its width (minus gap space) */
+    100% { transform: translateX(calc(-50% - 1rem)); } 
+}
+
+/* Responsive fix for mobile */
+@media (max-width: 900px) {
+    .review-card {
+        width: 300px;
+        padding: 2rem;
+    }
+}
