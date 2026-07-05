@@ -250,14 +250,14 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
-.img-wide {
+.image-column img-wide reveal {
     grid-column: 1 / -1;
     margin-top: -4rem;
     justify-self: start;
     width: 70%;
 }
 
-.img-wide img {
+.image-column img-wide reveal img {
     width: 100%;
     height: auto;
 }
