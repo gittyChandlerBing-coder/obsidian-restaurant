@@ -147,7 +147,7 @@ h1, h2, h3 {
 .hero {
     height: 100vh;
     /* Hero Image (1.jpg) applied here */
-    background-image: url('images/1.jpg');
+    background-image: url('images/1.png');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
