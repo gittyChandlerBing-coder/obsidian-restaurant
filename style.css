@@ -250,16 +250,35 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
-.img-wide {
-    grid-column: 1 / -1;
-    margin-top: -4rem;
-    justify-self: start;
-    width: 70%;
+/* Delete .img-wide block and replace with this: */
+.quote-column {
+    align-self: center;
+    padding-right: 2rem;
 }
 
-.img-wide img {
+.editorial-quote {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1.4;
+    font-style: italic;
+    border-left: 2px solid var(--blood-orange);
+    padding-left: 2rem;
+}
+
+.quote-author {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--parchment);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-style: normal;
+}
+
+.img-fire img {
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 /* Scroll Trigger Reveal Animations */
@@ -450,6 +469,7 @@ h1, h2, h3 {
 /* ------------------------------------- */
 /* Responsive adjustments */
 /* ------------------------------------- */
+/* Responsive adjustments */
 @media (max-width: 900px) {
     .nav-content {
         flex-direction: column;
@@ -461,10 +481,18 @@ h1, h2, h3 {
     .asymmetric-grid {
         grid-template-columns: 1fr;
     }
-    .text-column, .img-wide {
+    .text-column, .img-fire {
         justify-self: center;
         width: 100%;
         margin-top: 0;
+    }
+    .quote-column {
+        padding-right: 0;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .editorial-quote {
+        font-size: 1.5rem;
     }
     .hero h1 {
         font-size: 3.5rem;
